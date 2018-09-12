@@ -2,11 +2,13 @@
   "name": "peposo",
   "version": "1.0.0",
   "description": "Simple Instagram client side scraper",
-  "main": "src/index.js",
+  "main": "dist/peposo-node.js",
+  "browser": "dist/peposo.js",
   "scripts": {
-    "build:development": "npm run webpack --progress",
-    "build:production": "NODE_ENV=production npm run webpack --mode-production",
-    "test": "jest --coverage"
+    "prepublish": "npm run build:production",
+    "build:development": "NODE_ENV=development webpack --progress --mode development",
+    "build:production": "rm -rf ./dist/ && NODE_ENV=production webpack --progress --env.production",
+    "test": "jest --coverage --coverageReporters=text-lcov"
   },
   "repository": {
     "type": "git",
