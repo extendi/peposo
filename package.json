@@ -1,0 +1,27 @@
+{
+  "name": "peposo",
+  "version": "1.0.0",
+  "description": "Simple Instagram client side scraper",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extendi/peposo.git"
+  },
+  "keywords": [
+    "Instagram",
+    "scraper",
+    "client",
+    "fetch",
+    "Graph",
+    "API"
+  ],
+  "author": "Extendi <info@extendi.it>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/extendi/peposo/issues"
+  },
+  "homepage": "https://github.com/extendi/peposo#readme"
+}
