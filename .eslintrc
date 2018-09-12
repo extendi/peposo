@@ -1,0 +1,42 @@
+{
+    "extends": [
+      "airbnb"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "prefer-destructuring": 0,
+      "no-debugger": "off",
+      "max-len": [
+        2,
+        80,
+        8
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "error"
+          ]
+        }
+      ],
+      "no-multi-spaces": [
+        "error",
+        {
+          "ignoreEOLComments": true
+        }
+      ]
+    },
+    "env": {
+      "jest": true
+    },
+    "settings": {
+      "import/resolver": {
+        "babel-module": {}
+      }
+    },
+    "globals": {
+      "window": true,
+      "document": true
+    }
+  }
+  
