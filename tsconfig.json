@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "module": "commonjs",
+    "target": "es6",
+    "lib": [
+      "es2015"
+    ],
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "paths": {
+      "@lib/*": [
+        "*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "**/__tests__/**/*"
+  ]
+}

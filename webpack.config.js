@@ -1,32 +1,60 @@
 // cf. https://webpack.js.org/configuration/
 
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const prodConfig = require('./webpack.config.production');
 
-module.exports = {
-  context: path.join(__dirname, '/src'),
-  mode: 'development',
-  entry: {
-    peposo: 'src/index.js',
+const libraryName = 'peposo';
+
+const common = {
+  entry: path.join(__dirname, './src/index.ts'),
+  devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".js", ".json"],
+    plugins: [new TsconfigPathsPlugin({ configFile: "tsconfig.json" })]
   },
-  plugins: [],
-  output: {
-    path: path.join(__dirname, '/build'),
-    filename: '[name].js',
-    sourceMapFilename: '[name].js.map',
-  },
-  optimization: {
-  },
-  devtool: 'source-map',
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
+      { test: /\.ts$/, loader: "ts-loader" },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ],
   },
-  resolve: {
-    extensions: ['.js', '.json'],
+};
+
+const developmentConfig = [{
+  ...common,
+  output: {
+    path: path.join(__dirname, './dist'),
+    filename: `${libraryName}.js`,
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'this',
   },
+},
+{
+  ...common,
+  target: "node",
+  output: {
+    path: path.join(__dirname, './dist'),
+    filename: `${libraryName}-node.js`,
+    library: libraryName,
+    libraryTarget: 'commonjs2',
+  },
+}];
+
+module.exports = (env) => {
+  if (env && env.production) {
+    return [
+      {
+        ...developmentConfig[0],
+        ...prodConfig,
+      },
+      {
+        ...developmentConfig[1],
+        ...prodConfig,
+      },
+    ];
+  }
+  return developmentConfig;
 };
