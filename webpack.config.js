@@ -31,16 +31,6 @@ const developmentConfig = [{
     umdNamedDefine: true,
     globalObject: 'this',
   },
-},
-{
-  ...common,
-  target: "node",
-  output: {
-    path: path.join(__dirname, './dist'),
-    filename: `${libraryName}-node.js`,
-    library: libraryName,
-    libraryTarget: 'commonjs2',
-  },
 }];
 
 module.exports = (env) => {

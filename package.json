@@ -2,7 +2,6 @@
   "name": "peposo",
   "version": "1.0.0",
   "description": "Simple Instagram client side scraper",
-  "main": "dist/peposo-node.js",
   "browser": "dist/peposo.js",
   "scripts": {
     "prepublish": "npm run build:production",
@@ -61,5 +60,8 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
