@@ -1,6 +1,6 @@
 {
   "name": "peposo",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Simple Instagram client side scraper",
   "browser": "dist/peposo.js",
   "scripts": {
