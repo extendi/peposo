@@ -7,7 +7,7 @@ const prodConfig = require('./webpack.config.production');
 const libraryName = 'peposo';
 
 const common = {
-  entry: path.join(__dirname, './src/index.ts'),
+  entry: path.join(__dirname, 'src/index.ts'),
   devtool: "source-map",
   resolve: {
     extensions: [".ts", ".js", ".json"],
@@ -38,10 +38,6 @@ module.exports = (env) => {
     return [
       {
         ...developmentConfig[0],
-        ...prodConfig,
-      },
-      {
-        ...developmentConfig[1],
         ...prodConfig,
       },
     ];
